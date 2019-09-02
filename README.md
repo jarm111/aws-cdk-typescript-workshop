@@ -1,4 +1,8 @@
-# Useful commands
+# AWS CDK TypeScript Workshop
+
+My tinkering with the official [AWS CDK Workshop](https://cdkworkshop.com/)
+
+## Useful commands
 
  * `npm run build`   compile typescript to js
  * `npm run watch`   watch for changes and compile
