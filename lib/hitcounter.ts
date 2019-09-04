@@ -8,7 +8,7 @@ export interface HitCounterProps {
 
 export class HitCounter extends cdk.Construct {
   public readonly handler: lambda.Function
-  public readoly table: dynamodb.Table
+  public readonly table: dynamodb.Table
 
   constructor(scope: cdk.Construct, id: string, props: HitCounterProps) {
     super(scope, id)
