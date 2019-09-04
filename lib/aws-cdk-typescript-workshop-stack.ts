@@ -1,6 +1,7 @@
 import cdk = require('@aws-cdk/core');
 import lambda = require('@aws-cdk/aws-lambda')
 import apigw = require('@aws-cdk/aws-apigateway')
+import { HitCounter } from './hitcounter'
 
 
 export class AwsCdkTypescriptWorkshopStack extends cdk.Stack {
@@ -13,8 +14,12 @@ export class AwsCdkTypescriptWorkshopStack extends cdk.Stack {
       code: lambda.Code.fromAsset('lambda')
     })
 
+    const helloWithCounter = new HitCounter(this, 'HelloHitCounter', {
+      downstream: hello
+    })
+
     new apigw.LambdaRestApi(this, 'Endpoint', {
-      handler: hello
+      handler: helloWithCounter.handler
     })
   }
 }
